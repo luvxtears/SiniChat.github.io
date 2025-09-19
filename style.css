@@ -1,0 +1,509 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+
+@font-face {
+    font-family: Caliban;
+    src: url(/ofont.ru_Caliban\ Unicode.ttf);
+}
+
+@font-face {
+    font-family: nfs;
+    src: url(/ofont.ru_NFS\ font.ttf);
+}
+
+@font-face {
+    font-family: tiktok;
+    src: url(/ofont.ru_TikTok\ Sans.ttf);
+}
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #134074;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+    font-family: nfs;
+    width: 100%;
+    background-color: #8DA9C4;
+    color: #0B2545;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    z-index: 100;
+}
+
+header .text {
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+/* MAIN LAYOUT */
+.pages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    padding: 20px 15px;
+    width: 100%;
+}
+
+.charapters {
+    width: 100%;
+    max-width: 600px;
+}
+
+.left-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.left-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+/* TOGGLE BUTTONS */
+.toggle-button {
+    font-family: Caliban;
+    background-color: #0B2545;
+    color: #8DA9C4;
+    padding: 18px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.toggle-button:hover {
+    background-color: #13315C;
+    transform: translateY(-2px);
+}
+
+.toggle-button::after {
+    content: '▼';
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.toggle-button.active::after {
+    transform: rotate(180deg);
+}
+
+/* CONTENT BLOCKS */
+.content {
+    background: #8DA9C4;
+    border-radius: 0 0 15px 15px;
+    padding: 0;
+    margin: -8px 0 25px 0;
+    overflow: hidden;
+    max-height: 0;
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.content.active {
+    max-height: 5000px;
+    padding: 25px 20px;
+}
+
+.content-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.content-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.name {
+    font-size: 1.8rem;
+    font-family: Caliban;
+    color: #0B2545;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.content-text {
+    font-family: tiktok;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #2c3e50;
+    padding: 0 10px;
+}
+
+/* AUDIO PLAYER */
+audio {
+    margin: 10px auto 0 auto;
+    border-radius: 25px;
+    background: #f1f3f4;
+}
+
+audio::-webkit-media-controls-panel {
+    background: #f1f3f4;
+}
+
+/* FOOTER */
+footer {
+    font-family: tiktok;
+    text-align: center;
+    padding: 20px;
+    background-color: #0B2545;
+    color: #8DA9C4;
+    margin-top: auto;
+    font-size: 1rem;
+}
+
+/* MOBILE FIRST STYLES */
+@media (max-width: 767px) {
+    header .text {
+        font-size: 2rem;
+    }
+    
+    .pages {
+        padding: 15px 10px;
+        gap: 15px;
+    }
+    
+    .toggle-button {
+        padding: 16px 18px;
+        font-size: 1rem;
+        border-radius: 12px;
+    }
+    
+    .content.active {
+        padding: 20px 15px;
+        gap: 15px;
+    }
+    
+    .image {
+        max-width: 220px;
+    }
+    
+    .name {
+        font-size: 1.5rem;
+    }
+    
+    .content-text {
+        font-size: 0.95rem;
+        padding: 0 5px;
+    }
+    
+    .left-image {
+        max-width: 250px;
+    }
+    
+    audio {
+        max-width: 280px;
+        height: 36px;
+    }
+}
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 380px) {
+    header .text {
+        font-size: 1.7rem;
+    }
+    
+    .toggle-button {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+    
+    .content.active {
+        padding: 18px 12px;
+    }
+    
+    .image {
+        max-width: 200px;
+    }
+    
+    .left{
+        align-items: center;
+    }
+
+    .name {
+        font-size: 1.3rem;
+        align-items: center;
+    }
+    
+    .content-text {
+        font-size: 0.9rem;
+        align-items: center;
+    }
+    
+    .left-image {
+        max-width: 200px;
+    }
+    
+    audio {
+        max-width: 250px;
+    }
+
+    .content{
+        align-items: center;
+    }
+}
+
+/* LANDSCAPE ORIENTATION */
+@media (max-width: 900px) and (orientation: landscape) {
+    header .text {
+        font-size: 1.8rem;
+    }
+    
+    .pages {
+        padding: 12px 10px;
+        gap: 12px;
+    }
+    
+    .content.active {
+        flex-direction: row;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .content-inner {
+        flex-direction: row;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .image {
+        max-width: 120px;
+        flex-shrink: 0;
+    }
+    
+    .content-details {
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .name {
+        font-size: 1.3rem;
+    }
+    
+    .content-text {
+        font-size: 0.9rem;
+        padding: 0;
+    }
+}
+
+/* TABLET STYLES */
+@media (min-width: 768px) and (max-width: 991px) {
+    header .text {
+        font-size: 3rem;
+    }
+    
+    .pages {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 40px;
+        padding: 30px 20px;
+    }
+    
+    .charapters {
+        max-width: 500px;
+    }
+    
+    .left-content {
+        width: auto;
+    }
+    
+    .left-image {
+        max-width: 250px;
+    }
+    
+    .content.active {
+        flex-direction: row;
+        gap: 25px;
+        padding: 25px;
+    }
+    
+    .content-inner {
+        flex-direction: row;
+        gap: 25px;
+        align-items: flex-start;
+    }
+    
+    .image {
+        max-width: 180px;
+        flex-shrink: 0;
+    }
+    
+    .content-details {
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .name {
+        font-size: 1.6rem;
+    }
+    
+    .content-text {
+        font-size: 1rem;
+        padding: 0;
+    }
+}
+
+/* DESKTOP STYLES */
+@media (min-width: 992px) {
+    header .text {
+        font-size: 4rem;
+    }
+    
+    .pages {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 60px;
+        padding: 40px 30px;
+    }
+    
+    .charapters {
+        max-width: 600px;
+    }
+    
+    .left-content {
+        width: auto;
+    }
+    
+    .left-image {
+        max-width: 350px;
+    }
+    
+    .content.active {
+        flex-direction: row;
+        gap: 30px;
+        padding: 30px;
+    }
+    
+    .content-inner {
+        flex-direction: row;
+        gap: 30px;
+        align-items: flex-start;
+    }
+    
+    .image {
+        max-width: 220px;
+        flex-shrink: 0;
+    }
+    
+    .content-details {
+        text-align: left;
+        gap: 25px;
+    }
+    
+    .name {
+        font-size: 2rem;
+    }
+    
+    .content-text {
+        font-size: 1.1rem;
+        padding: 0;
+    }
+    
+    audio {
+        max-width: 350px;
+    }
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content.active .content-inner {
+    animation: fadeIn 0.5s ease;
+}
+
+/* SCROLL BAR STYLING */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0B2545;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8DA9C4;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6a8caa;
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* TOUCH DEVICE OPTIMIZATIONS */
+@media (hover: none) {
+    .toggle-button:hover {
+        background-color: #0B2545;
+        transform: none;
+    }
+    
+    .toggle-button:active {
+        background-color: #13315C;
+        transform: scale(0.98);
+    }
+}
